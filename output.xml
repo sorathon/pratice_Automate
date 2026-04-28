@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.9 on win32)" generated="20260428 20:35:11.373" rpa="false" schemaversion="4">
+<suite id="s1" name="Pratice5" source="C:\Users\iTservice\OneDrive\เอกสาร\pratice_Automate\pratice5.robot">
+<kw name="Open DataTables Page" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>browser=chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20260428 20:35:11.608" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\OneDrive\\\u0e40\u0e2d\u0e01\u0e2a\u0e32\u0e23\\pratice_Automate\\browser\\traces\\temp\\77ee3ea2-0432-4070-886a-9b4555e69373"}</msg>
+<msg timestamp="20260428 20:35:11.635" level="INFO">Starting Browser process C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:60224</msg>
+<msg timestamp="20260428 20:35:12.365" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\OneDrive\\เอกสาร\\pratice_Automate\\browser\\traces\\temp\\77ee3ea2-0432-4070-886a-9b4555e69373"}</msg>
+<status status="PASS" starttime="20260428 20:35:11.608" endtime="20260428 20:35:12.365"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20260428 20:35:14.189" level="INFO">Successfully initialized new page object and opened url: https://datatables.net/examples/styling/stripe.html</msg>
+<msg timestamp="20260428 20:35:14.190" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20260428 20:35:12.366" endtime="20260428 20:35:14.190"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:11.608" endtime="20260428 20:35:14.191"/>
+</kw>
+<test id="s1-t1" name="Verify Full Search Lower Case" line="13">
+<kw name="Filter And Verify Position Data">
+<arg>software engineer</arg>
+<kw name="Fill Text" library="Browser">
+<arg>${SEARCH_INPUT}</arg>
+<arg>${search_term}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.203" level="INFO">Fills the text 'software engineer' in the given field.</msg>
+<status status="PASS" starttime="20260428 20:35:14.203" endtime="20260428 20:35:14.232"/>
+</kw>
+<kw name="Get Element Count" library="Browser">
+<var>${row_count}</var>
+<arg>${TABLE_ROWS}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.239" level="INFO">${row_count} = 6</msg>
+<status status="PASS" starttime="20260428 20:35:14.232" endtime="20260428 20:35:14.239"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSearch Term: ${search_term} | Found: ${row_count} rows</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.239" endtime="20260428 20:35:14.239"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${row_count} + 1</value>
+<iter>
+<var name="${index}">1</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.268" level="INFO">Text: 'Software Engineer'</msg>
+<msg timestamp="20260428 20:35:14.269" level="INFO">${cell_text} = Software Engineer</msg>
+<status status="PASS" starttime="20260428 20:35:14.239" endtime="20260428 20:35:14.269"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.269" endtime="20260428 20:35:14.269"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.269" endtime="20260428 20:35:14.269"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.239" endtime="20260428 20:35:14.269"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.281" level="INFO">Text: 'Software Engineer'</msg>
+<msg timestamp="20260428 20:35:14.281" level="INFO">${cell_text} = Software Engineer</msg>
+<status status="PASS" starttime="20260428 20:35:14.270" endtime="20260428 20:35:14.281"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.281" endtime="20260428 20:35:14.281"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.282" endtime="20260428 20:35:14.282"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.270" endtime="20260428 20:35:14.282"/>
+</iter>
+<iter>
+<var name="${index}">3</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.296" level="INFO">Text: 'Software Engineer'</msg>
+<msg timestamp="20260428 20:35:14.296" level="INFO">${cell_text} = Software Engineer</msg>
+<status status="PASS" starttime="20260428 20:35:14.282" endtime="20260428 20:35:14.296"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.296" endtime="20260428 20:35:14.297"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.297" endtime="20260428 20:35:14.297"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.282" endtime="20260428 20:35:14.297"/>
+</iter>
+<iter>
+<var name="${index}">4</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.309" level="INFO">Text: 'Software Engineer'</msg>
+<msg timestamp="20260428 20:35:14.309" level="INFO">${cell_text} = Software Engineer</msg>
+<status status="PASS" starttime="20260428 20:35:14.297" endtime="20260428 20:35:14.309"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.309" endtime="20260428 20:35:14.310"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.310" endtime="20260428 20:35:14.310"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.297" endtime="20260428 20:35:14.310"/>
+</iter>
+<iter>
+<var name="${index}">5</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.323" level="INFO">Text: 'Software Engineer'</msg>
+<msg timestamp="20260428 20:35:14.323" level="INFO">${cell_text} = Software Engineer</msg>
+<status status="PASS" starttime="20260428 20:35:14.310" endtime="20260428 20:35:14.323"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.323" endtime="20260428 20:35:14.324"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.324" endtime="20260428 20:35:14.324"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.310" endtime="20260428 20:35:14.324"/>
+</iter>
+<iter>
+<var name="${index}">6</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.336" level="INFO">Text: 'Software Engineer'</msg>
+<msg timestamp="20260428 20:35:14.336" level="INFO">${cell_text} = Software Engineer</msg>
+<status status="PASS" starttime="20260428 20:35:14.324" endtime="20260428 20:35:14.336"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.336" endtime="20260428 20:35:14.337"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.337" endtime="20260428 20:35:14.337"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.324" endtime="20260428 20:35:14.337"/>
+</iter>
+<status status="PASS" starttime="20260428 20:35:14.239" endtime="20260428 20:35:14.337"/>
+</for>
+<kw name="Get Text" library="Browser">
+<var>${info_text}</var>
+<arg>${INFO_ID}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.350" level="INFO">Text: 'Showing 1 to 6 of 6 entries (filtered from 57 total entries)'</msg>
+<msg timestamp="20260428 20:35:14.350" level="INFO">${info_text} = Showing 1 to 6 of 6 entries (filtered from 57 total entries)</msg>
+<status status="PASS" starttime="20260428 20:35:14.337" endtime="20260428 20:35:14.350"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${info_text}</arg>
+<arg>Showing 1 to ${row_count} of ${row_count} entries</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.350" endtime="20260428 20:35:14.351"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.202" endtime="20260428 20:35:14.351"/>
+</kw>
+<kw name="Clear Search Field" type="TEARDOWN">
+<kw name="Fill Text" library="Browser">
+<arg>${SEARCH_INPUT}</arg>
+<arg>${EMPTY}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.352" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20260428 20:35:14.351" endtime="20260428 20:35:14.366"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.351" endtime="20260428 20:35:14.366"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.191" endtime="20260428 20:35:14.366"/>
+</test>
+<test id="s1-t2" name="Verify Full Search Upper Case" line="16">
+<kw name="Filter And Verify Position Data">
+<arg>SOFTWARE ENGINEER</arg>
+<kw name="Fill Text" library="Browser">
+<arg>${SEARCH_INPUT}</arg>
+<arg>${search_term}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.377" level="INFO">Fills the text 'SOFTWARE ENGINEER' in the given field.</msg>
+<status status="PASS" starttime="20260428 20:35:14.377" endtime="20260428 20:35:14.388"/>
+</kw>
+<kw name="Get Element Count" library="Browser">
+<var>${row_count}</var>
+<arg>${TABLE_ROWS}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.393" level="INFO">${row_count} = 6</msg>
+<status status="PASS" starttime="20260428 20:35:14.389" endtime="20260428 20:35:14.393"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSearch Term: ${search_term} | Found: ${row_count} rows</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.393" endtime="20260428 20:35:14.394"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${row_count} + 1</value>
+<iter>
+<var name="${index}">1</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.407" level="INFO">Text: 'Software Engineer'</msg>
+<msg timestamp="20260428 20:35:14.407" level="INFO">${cell_text} = Software Engineer</msg>
+<status status="PASS" starttime="20260428 20:35:14.394" endtime="20260428 20:35:14.407"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.407" endtime="20260428 20:35:14.408"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.408" endtime="20260428 20:35:14.408"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.394" endtime="20260428 20:35:14.408"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.420" level="INFO">Text: 'Software Engineer'</msg>
+<msg timestamp="20260428 20:35:14.420" level="INFO">${cell_text} = Software Engineer</msg>
+<status status="PASS" starttime="20260428 20:35:14.408" endtime="20260428 20:35:14.420"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.420" endtime="20260428 20:35:14.420"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.421" endtime="20260428 20:35:14.421"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.408" endtime="20260428 20:35:14.421"/>
+</iter>
+<iter>
+<var name="${index}">3</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.432" level="INFO">Text: 'Software Engineer'</msg>
+<msg timestamp="20260428 20:35:14.432" level="INFO">${cell_text} = Software Engineer</msg>
+<status status="PASS" starttime="20260428 20:35:14.421" endtime="20260428 20:35:14.433"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.433" endtime="20260428 20:35:14.433"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.433" endtime="20260428 20:35:14.433"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.421" endtime="20260428 20:35:14.433"/>
+</iter>
+<iter>
+<var name="${index}">4</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.447" level="INFO">Text: 'Software Engineer'</msg>
+<msg timestamp="20260428 20:35:14.447" level="INFO">${cell_text} = Software Engineer</msg>
+<status status="PASS" starttime="20260428 20:35:14.433" endtime="20260428 20:35:14.447"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.447" endtime="20260428 20:35:14.447"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.447" endtime="20260428 20:35:14.448"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.433" endtime="20260428 20:35:14.448"/>
+</iter>
+<iter>
+<var name="${index}">5</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.462" level="INFO">Text: 'Software Engineer'</msg>
+<msg timestamp="20260428 20:35:14.462" level="INFO">${cell_text} = Software Engineer</msg>
+<status status="PASS" starttime="20260428 20:35:14.448" endtime="20260428 20:35:14.462"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.462" endtime="20260428 20:35:14.462"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.462" endtime="20260428 20:35:14.463"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.448" endtime="20260428 20:35:14.463"/>
+</iter>
+<iter>
+<var name="${index}">6</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.490" level="INFO">Text: 'Software Engineer'</msg>
+<msg timestamp="20260428 20:35:14.490" level="INFO">${cell_text} = Software Engineer</msg>
+<status status="PASS" starttime="20260428 20:35:14.463" endtime="20260428 20:35:14.490"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.490" endtime="20260428 20:35:14.490"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.491" endtime="20260428 20:35:14.491"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.463" endtime="20260428 20:35:14.491"/>
+</iter>
+<status status="PASS" starttime="20260428 20:35:14.394" endtime="20260428 20:35:14.491"/>
+</for>
+<kw name="Get Text" library="Browser">
+<var>${info_text}</var>
+<arg>${INFO_ID}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.503" level="INFO">Text: 'Showing 1 to 6 of 6 entries (filtered from 57 total entries)'</msg>
+<msg timestamp="20260428 20:35:14.503" level="INFO">${info_text} = Showing 1 to 6 of 6 entries (filtered from 57 total entries)</msg>
+<status status="PASS" starttime="20260428 20:35:14.492" endtime="20260428 20:35:14.503"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${info_text}</arg>
+<arg>Showing 1 to ${row_count} of ${row_count} entries</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.504" endtime="20260428 20:35:14.504"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.376" endtime="20260428 20:35:14.504"/>
+</kw>
+<kw name="Clear Search Field" type="TEARDOWN">
+<kw name="Fill Text" library="Browser">
+<arg>${SEARCH_INPUT}</arg>
+<arg>${EMPTY}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.505" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20260428 20:35:14.504" endtime="20260428 20:35:14.517"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.504" endtime="20260428 20:35:14.517"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.372" endtime="20260428 20:35:14.519"/>
+</test>
+<test id="s1-t3" name="Verify Partial Search Start Word" line="19">
+<kw name="Filter And Verify Position Data">
+<arg>Sales</arg>
+<kw name="Fill Text" library="Browser">
+<arg>${SEARCH_INPUT}</arg>
+<arg>${search_term}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.528" level="INFO">Fills the text 'Sales' in the given field.</msg>
+<status status="PASS" starttime="20260428 20:35:14.527" endtime="20260428 20:35:14.538"/>
+</kw>
+<kw name="Get Element Count" library="Browser">
+<var>${row_count}</var>
+<arg>${TABLE_ROWS}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.544" level="INFO">${row_count} = 5</msg>
+<status status="PASS" starttime="20260428 20:35:14.538" endtime="20260428 20:35:14.544"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSearch Term: ${search_term} | Found: ${row_count} rows</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.544" endtime="20260428 20:35:14.544"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${row_count} + 1</value>
+<iter>
+<var name="${index}">1</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.559" level="INFO">Text: 'Pre-Sales Support'</msg>
+<msg timestamp="20260428 20:35:14.559" level="INFO">${cell_text} = Pre-Sales Support</msg>
+<status status="PASS" starttime="20260428 20:35:14.544" endtime="20260428 20:35:14.559"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.559" endtime="20260428 20:35:14.559"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.560" endtime="20260428 20:35:14.560"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.544" endtime="20260428 20:35:14.560"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.575" level="INFO">Text: 'Sales Assistant'</msg>
+<msg timestamp="20260428 20:35:14.575" level="INFO">${cell_text} = Sales Assistant</msg>
+<status status="PASS" starttime="20260428 20:35:14.560" endtime="20260428 20:35:14.575"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.575" endtime="20260428 20:35:14.577"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.577" endtime="20260428 20:35:14.578"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.560" endtime="20260428 20:35:14.578"/>
+</iter>
+<iter>
+<var name="${index}">3</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.598" level="INFO">Text: 'Sales Assistant'</msg>
+<msg timestamp="20260428 20:35:14.598" level="INFO">${cell_text} = Sales Assistant</msg>
+<status status="PASS" starttime="20260428 20:35:14.578" endtime="20260428 20:35:14.598"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.598" endtime="20260428 20:35:14.600"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.600" endtime="20260428 20:35:14.600"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.578" endtime="20260428 20:35:14.600"/>
+</iter>
+<iter>
+<var name="${index}">4</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.618" level="INFO">Text: 'Sales Assistant'</msg>
+<msg timestamp="20260428 20:35:14.618" level="INFO">${cell_text} = Sales Assistant</msg>
+<status status="PASS" starttime="20260428 20:35:14.601" endtime="20260428 20:35:14.618"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.618" endtime="20260428 20:35:14.618"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.618" endtime="20260428 20:35:14.619"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.601" endtime="20260428 20:35:14.619"/>
+</iter>
+<iter>
+<var name="${index}">5</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.631" level="INFO">Text: 'Post-Sales support'</msg>
+<msg timestamp="20260428 20:35:14.631" level="INFO">${cell_text} = Post-Sales support</msg>
+<status status="PASS" starttime="20260428 20:35:14.619" endtime="20260428 20:35:14.631"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.632" endtime="20260428 20:35:14.632"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.632" endtime="20260428 20:35:14.632"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.619" endtime="20260428 20:35:14.632"/>
+</iter>
+<status status="PASS" starttime="20260428 20:35:14.544" endtime="20260428 20:35:14.632"/>
+</for>
+<kw name="Get Text" library="Browser">
+<var>${info_text}</var>
+<arg>${INFO_ID}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.641" level="INFO">Text: 'Showing 1 to 5 of 5 entries (filtered from 57 total entries)'</msg>
+<msg timestamp="20260428 20:35:14.641" level="INFO">${info_text} = Showing 1 to 5 of 5 entries (filtered from 57 total entries)</msg>
+<status status="PASS" starttime="20260428 20:35:14.632" endtime="20260428 20:35:14.641"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${info_text}</arg>
+<arg>Showing 1 to ${row_count} of ${row_count} entries</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.642" endtime="20260428 20:35:14.642"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.527" endtime="20260428 20:35:14.642"/>
+</kw>
+<kw name="Clear Search Field" type="TEARDOWN">
+<kw name="Fill Text" library="Browser">
+<arg>${SEARCH_INPUT}</arg>
+<arg>${EMPTY}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.643" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20260428 20:35:14.643" endtime="20260428 20:35:14.656"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.643" endtime="20260428 20:35:14.656"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.524" endtime="20260428 20:35:14.656"/>
+</test>
+<test id="s1-t4" name="Verify Partial Search Middle Word" line="22">
+<kw name="Filter And Verify Position Data">
+<arg>Javascript</arg>
+<kw name="Fill Text" library="Browser">
+<arg>${SEARCH_INPUT}</arg>
+<arg>${search_term}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.665" level="INFO">Fills the text 'Javascript' in the given field.</msg>
+<status status="PASS" starttime="20260428 20:35:14.665" endtime="20260428 20:35:14.675"/>
+</kw>
+<kw name="Get Element Count" library="Browser">
+<var>${row_count}</var>
+<arg>${TABLE_ROWS}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.681" level="INFO">${row_count} = 4</msg>
+<status status="PASS" starttime="20260428 20:35:14.676" endtime="20260428 20:35:14.681"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSearch Term: ${search_term} | Found: ${row_count} rows</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.681" endtime="20260428 20:35:14.681"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>${row_count} + 1</value>
+<iter>
+<var name="${index}">1</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.692" level="INFO">Text: 'Senior JavaScript Developer'</msg>
+<msg timestamp="20260428 20:35:14.692" level="INFO">${cell_text} = Senior JavaScript Developer</msg>
+<status status="PASS" starttime="20260428 20:35:14.682" endtime="20260428 20:35:14.692"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.692" endtime="20260428 20:35:14.692"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.692" endtime="20260428 20:35:14.693"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.682" endtime="20260428 20:35:14.693"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.704" level="INFO">Text: 'JavaScript Developer'</msg>
+<msg timestamp="20260428 20:35:14.704" level="INFO">${cell_text} = JavaScript Developer</msg>
+<status status="PASS" starttime="20260428 20:35:14.693" endtime="20260428 20:35:14.704"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.704" endtime="20260428 20:35:14.704"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.704" endtime="20260428 20:35:14.708"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.693" endtime="20260428 20:35:14.708"/>
+</iter>
+<iter>
+<var name="${index}">3</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.718" level="INFO">Text: 'Junior JavaScript Developer'</msg>
+<msg timestamp="20260428 20:35:14.718" level="INFO">${cell_text} = Junior JavaScript Developer</msg>
+<status status="PASS" starttime="20260428 20:35:14.708" endtime="20260428 20:35:14.718"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.718" endtime="20260428 20:35:14.719"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.719" endtime="20260428 20:35:14.719"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.708" endtime="20260428 20:35:14.719"/>
+</iter>
+<iter>
+<var name="${index}">4</var>
+<kw name="Get Text" library="Browser">
+<var>${cell_text}</var>
+<arg>xpath=//table[@id='example']/tbody/tr[${index}]/td[2]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.731" level="INFO">Text: 'JavaScript Developer'</msg>
+<msg timestamp="20260428 20:35:14.731" level="INFO">${cell_text} = JavaScript Developer</msg>
+<status status="PASS" starttime="20260428 20:35:14.720" endtime="20260428 20:35:14.731"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Checking Row ${index}: ${cell_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20260428 20:35:14.731" endtime="20260428 20:35:14.732"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${cell_text}</arg>
+<arg>${search_term}</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.732" endtime="20260428 20:35:14.732"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.720" endtime="20260428 20:35:14.732"/>
+</iter>
+<status status="PASS" starttime="20260428 20:35:14.681" endtime="20260428 20:35:14.732"/>
+</for>
+<kw name="Get Text" library="Browser">
+<var>${info_text}</var>
+<arg>${INFO_ID}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.745" level="INFO">Text: 'Showing 1 to 4 of 4 entries (filtered from 57 total entries)'</msg>
+<msg timestamp="20260428 20:35:14.745" level="INFO">${info_text} = Showing 1 to 4 of 4 entries (filtered from 57 total entries)</msg>
+<status status="PASS" starttime="20260428 20:35:14.732" endtime="20260428 20:35:14.745"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${info_text}</arg>
+<arg>Showing 1 to ${row_count} of ${row_count} entries</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20260428 20:35:14.745" endtime="20260428 20:35:14.745"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.664" endtime="20260428 20:35:14.745"/>
+</kw>
+<kw name="Clear Search Field" type="TEARDOWN">
+<kw name="Fill Text" library="Browser">
+<arg>${SEARCH_INPUT}</arg>
+<arg>${EMPTY}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20260428 20:35:14.746" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20260428 20:35:14.746" endtime="20260428 20:35:14.759"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.746" endtime="20260428 20:35:14.759"/>
+</kw>
+<status status="PASS" starttime="20260428 20:35:14.661" endtime="20260428 20:35:14.760"/>
+</test>
+<status status="PASS" starttime="20260428 20:35:11.375" endtime="20260428 20:35:14.765"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Pratice5">Pratice5</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

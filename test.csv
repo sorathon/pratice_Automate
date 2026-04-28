@@ -1,0 +1,6 @@
+name,email,password,confirm,expected
+,user@test.com,Pass1234!,Pass1234!,User name is required
+John Doe,invalid-email,Pass1234!,Pass1234!,Email address is invalid
+John Doe,user@test.com,123,123,Password should be between 6 and 30 characters
+John Doe,user@test.com,Pass1234!,Wrong123!,Passwords don't match!
+John Doe,user@test.com,Pass1234!,,Confirm Password is required

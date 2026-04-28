@@ -25,7 +25,6 @@ TC-03 Second Number is not 'number'
 Open Calculator Website
     New Browser    browser=${BROWSER}    headless=false
     New Page       ${URL}
-    # เลือก Build เป็น Prototype เพื่อให้มี Error Message แสดง
     Select Options By    id=selectBuild    text    Prototype
 
 Calculate And Verify Error
@@ -35,9 +34,7 @@ Calculate And Verify Error
     Select Options By    id=selectOperationDropdown    text    Add
     Click          id=calculateButton
     
-    # 1. เช็คว่าช่องคำตอบ (Answer) ต้องว่างเปล่า (ตามที่รัน Fail เมื่อกี้)
     Get Property    id=numberAnswerField    value    ==    ${EMPTY}
     
-    # 2. เช็คว่ามีข้อความ Error สีแดงขึ้นเตือน (ตรงนี้สำคัญมากสำหรับงาน QA)
     Get Text       id=errorMsgField    contains    ${expected_error}
     
