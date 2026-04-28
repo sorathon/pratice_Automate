@@ -4,6 +4,7 @@ Library           CSVLibrary
 Suite Setup       Open Register Page
 Suite Teardown    Close Browser
 
+
 *** Variables ***
 ${CSV_FILE}       C:/Users/iTservice/OneDrive/เอกสาร/pratice_Automate/test.csv
 ${URL}            https://practice.expandtesting.com/notes/app/register
@@ -32,3 +33,4 @@ Verify All Register Exceptions From CSV
 Open Register Page
     New Browser   browser=chromium    headless=False
     New Page       ${URL}    
+    Set Browser Timeout    20 seconds
