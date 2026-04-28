@@ -17,6 +17,7 @@ Verify All Register Exceptions From CSV
     FOR    ${row}    IN    @{data[1:]}
         Go To    ${URL}    
         
+        
         Fill Text    id=name               ${row[0]}
         Fill Text    id=email              ${row[1]}
         Fill Text    id=password           ${row[2]}
@@ -27,10 +28,12 @@ Verify All Register Exceptions From CSV
         Get Text     body    contains    ${row[4]}
         
         Log    Checked Case: ${row[4]}
+
+        Sleep       1s
     END
 
 *** Keywords ***
 Open Register Page
     New Browser   browser=chromium    headless=False
-    New Page       ${URL}    
+    New Page       ${URL}   
     Set Browser Timeout    20 seconds

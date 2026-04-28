@@ -1,7 +1,6 @@
 *** Settings ***
 Library           Browser
-Suite Setup       New Browser    browser=chromium    headless=False
-Test Setup        New Context    viewport={'width': 1280, 'height': 720}
+Suite Setup       Open Parking Price Calculator Page
 Test Template     Calculate Parking Price Template
 
 *** Variables ***
@@ -21,10 +20,16 @@ TC-03 Per day         Long-Term Garage Parking    2026-05-01    10:00      2026-
 TC-04 Per week        Long-Term Garage Parking    2026-05-01    10:00      2026-05-08    10:00     72.00€
 
 *** Keywords ***
+Open Parking Price Calculator Page
+    New Browser   browser=chromium    headless=False
+    New Page       ${URL}   
+    Set Browser Timeout    20 seconds
+
+
 Calculate Parking Price Template
     [Arguments]    ${parking_type}    ${entry_d}    ${entry_t}    ${exit_d}    ${exit_t}    ${expected}
     
-    New Page    ${URL}
+    
     
     Select Options By    ${PARKING_LOT_SELECT}    label    ${parking_type}
     
@@ -37,3 +42,5 @@ Calculate Parking Price Template
     Click        ${CALCULATE_BTN}
     
     Get Text     ${RESULT_PRICE}    contains    ${expected}
+
+    Sleep       1s
