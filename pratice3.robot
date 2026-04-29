@@ -13,7 +13,7 @@ ${EXIT_TIME}             id=exitTime
 ${CALCULATE_BTN}         xpath=//button[contains(text(), 'Calculate')]   
 ${RESULT_PRICE}          id=resultValue
 
-*** Test Cases ***                                ENTRY_D       ENTRY_T    EXIT_D        EXIT_T    EXPECTED
+*** Test Cases ***    PARKING_TYPE                ENTRY_D       ENTRY_T    EXIT_D        EXIT_T    EXPECTED
 TC-01 Under 1 hour    Long-Term Garage Parking    2026-05-01    10:00      2026-05-01    10:30     2.00€
 TC-02 Per hour        Long-Term Garage Parking    2026-05-01    10:00      2026-05-01    11:00     2.00€
 TC-03 Per day         Long-Term Garage Parking    2026-05-01    10:00      2026-05-02    10:00     12.00€
@@ -42,5 +42,6 @@ Calculate Parking Price Template
     Click        ${CALCULATE_BTN}
     
     Get Text     ${RESULT_PRICE}    contains    ${expected}
+
 
     Sleep       1s
