@@ -37,4 +37,3 @@ Calculate And Verify Error
     Get Property    id=numberAnswerField    value    ==    ${EMPTY}
     
     Get Text       id=errorMsgField    contains    ${expected_error}
-    

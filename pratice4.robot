@@ -6,7 +6,7 @@ Suite Teardown    Close Browser
 
 
 *** Variables ***
-${CSV_FILE}       C:/Users/iTservice/OneDrive/เอกสาร/pratice_Automate/test.csv
+${CSV_FILE}       C:/Users/iTservice/OneDrive/เอกสาร/pratice_Automate/result/dataset/test.csv
 ${URL}            https://practice.expandtesting.com/notes/app/register
 
 *** Test Cases ***
