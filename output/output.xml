@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.12.9 on win32)" generated="20260429 09:43:54.267" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.12.9 on win32)" generated="20260429 10:23:33.597" rpa="false" schemaversion="4">
 <suite id="s1" name="Pratice4" source="C:\Users\iTservice\OneDrive\เอกสาร\pratice_Automate\pratice4.robot">
 <kw name="Open Register Page" type="SETUP">
 <kw name="New Browser" library="Browser">
@@ -8,36 +8,37 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20260429 09:43:54.470" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\OneDrive\\\u0e40\u0e2d\u0e01\u0e2a\u0e32\u0e23\\pratice_Automate\\output\\browser\\traces\\temp\\1049b073-da2b-4d40-9146-511f4b90ccfe"}</msg>
-<msg timestamp="20260429 09:43:54.506" level="INFO">Starting Browser process C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:42847</msg>
-<msg timestamp="20260429 09:43:55.238" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\OneDrive\\เอกสาร\\pratice_Automate\\output\\browser\\traces\\temp\\1049b073-da2b-4d40-9146-511f4b90ccfe"}</msg>
-<status status="PASS" starttime="20260429 09:43:54.470" endtime="20260429 09:43:55.238"/>
+<msg timestamp="20260429 10:23:33.891" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\iTservice\\OneDrive\\\u0e40\u0e2d\u0e01\u0e2a\u0e32\u0e23\\pratice_Automate\\output\\browser\\traces\\temp\\91fb727d-4dc3-4caa-a8f4-e8f5baf7c672"}</msg>
+<msg timestamp="20260429 10:23:34.558" level="INFO">Starting Browser process C:\Users\iTservice\AppData\Local\Programs\Python\Python312\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:38208</msg>
+<msg timestamp="20260429 10:23:36.025" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\iTservice\\OneDrive\\เอกสาร\\pratice_Automate\\output\\browser\\traces\\temp\\91fb727d-4dc3-4caa-a8f4-e8f5baf7c672"}</msg>
+<status status="PASS" starttime="20260429 10:23:33.891" endtime="20260429 10:23:36.025"/>
 </kw>
 <kw name="New Page" library="Browser">
 <arg>${URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<msg timestamp="20260429 09:43:57.683" level="INFO">Successfully initialized new page object and opened url: https://practice.expandtesting.com/notes/app/register</msg>
-<msg timestamp="20260429 09:43:57.683" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
-<status status="PASS" starttime="20260429 09:43:55.238" endtime="20260429 09:43:57.683"/>
+<msg timestamp="20260429 10:23:39.268" level="INFO">Successfully initialized new page object and opened url: https://practice.expandtesting.com/notes/app/register</msg>
+<msg timestamp="20260429 10:23:39.268" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20260429 10:23:36.025" endtime="20260429 10:23:39.268"/>
 </kw>
 <kw name="Set Browser Timeout" library="Browser">
 <arg>20 seconds</arg>
 <tag>Config</tag>
 <tag>Setter</tag>
 <doc>Sets the timeout used by most input and getter keywords.</doc>
-<status status="PASS" starttime="20260429 09:43:57.683" endtime="20260429 09:43:57.685"/>
+<status status="PASS" starttime="20260429 10:23:39.268" endtime="20260429 10:23:39.272"/>
 </kw>
-<status status="PASS" starttime="20260429 09:43:54.470" endtime="20260429 09:43:57.686"/>
+<status status="PASS" starttime="20260429 10:23:33.890" endtime="20260429 10:23:39.272"/>
 </kw>
-<test id="s1-t1" name="Verify All Register Exceptions From CSV" line="13">
+<test id="s1-t1" name="TC01 - Verify All Register Exceptions" line="13">
+<kw name="Verify All Register Exceptions From CSV">
 <kw name="Read Csv File To List" library="CSVLibrary">
 <var>${data}</var>
 <arg>${CSV_FILE}</arg>
 <doc>Read CSV file and return its content as a Python list of tuples.</doc>
-<msg timestamp="20260429 09:43:57.694" level="INFO">${data} = [['name', 'email', 'password', 'confirm', 'expected'], ['', 'user@test.com', 'Pass1234!', 'Pass1234!', 'User name is required'], ['John Doe', 'invalid-email', 'Pass1234!', 'Pass1234!', 'Email address ...</msg>
-<status status="PASS" starttime="20260429 09:43:57.693" endtime="20260429 09:43:57.694"/>
+<msg timestamp="20260429 10:23:39.279" level="INFO">${data} = [['name', 'email', 'password', 'confirm', 'expected'], ['', 'user@test.com', 'Pass1234!', 'Pass1234!', 'User name is required'], ['John Doe', 'invalid-email', 'Pass1234!', 'Pass1234!', 'Email address ...</msg>
+<status status="PASS" starttime="20260429 10:23:39.279" endtime="20260429 10:23:39.279"/>
 </kw>
 <for flavor="IN">
 <var>${row}</var>
@@ -49,8 +50,8 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Navigates to the given ``url``.</doc>
-<msg timestamp="20260429 09:43:59.037" level="INFO">Successfully opened URL https://practice.expandtesting.com/notes/app/register</msg>
-<status status="PASS" starttime="20260429 09:43:57.695" endtime="20260429 09:43:59.037"/>
+<msg timestamp="20260429 10:23:42.310" level="INFO">Successfully opened URL https://practice.expandtesting.com/notes/app/register</msg>
+<status status="PASS" starttime="20260429 10:23:39.279" endtime="20260429 10:23:42.310"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=name</arg>
@@ -58,8 +59,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:43:59.039" level="INFO">Fills the text '' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:43:59.037" endtime="20260429 09:43:59.074"/>
+<msg timestamp="20260429 10:23:42.311" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:42.310" endtime="20260429 10:23:42.340"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=email</arg>
@@ -67,8 +68,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:43:59.074" level="INFO">Fills the text 'user@test.com' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:43:59.074" endtime="20260429 09:43:59.108"/>
+<msg timestamp="20260429 10:23:42.340" level="INFO">Fills the text 'user@test.com' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:42.340" endtime="20260429 10:23:42.356"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=password</arg>
@@ -76,8 +77,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:43:59.108" level="INFO">Fills the text 'Pass1234!' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:43:59.108" endtime="20260429 09:43:59.137"/>
+<msg timestamp="20260429 10:23:42.358" level="INFO">Fills the text 'Pass1234!' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:42.358" endtime="20260429 10:23:42.372"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=confirmPassword</arg>
@@ -85,16 +86,16 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:43:59.138" level="INFO">Fills the text 'Pass1234!' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:43:59.137" endtime="20260429 09:43:59.155"/>
+<msg timestamp="20260429 10:23:42.372" level="INFO">Fills the text 'Pass1234!' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:42.372" endtime="20260429 10:23:42.380"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>css=button[type="submit"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260429 09:43:59.155" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
-<status status="PASS" starttime="20260429 09:43:59.155" endtime="20260429 09:43:59.202"/>
+<msg timestamp="20260429 10:23:42.380" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
+<status status="PASS" starttime="20260429 10:23:42.380" endtime="20260429 10:23:42.414"/>
 </kw>
 <kw name="Get Text" library="Browser">
 <arg>body</arg>
@@ -104,22 +105,22 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<msg timestamp="20260429 09:43:59.229" level="INFO">Text: 'PMP Practice | Free PMP Certification Mock Exam Test +900 Questions &amp; Quizzes\n\n\xa0Practice\nDemos\nTools\nTips\nTest Cases\nAPI Testing\nAbout\nFree ISTQB Mock Exams\n\nDo you enjoy this platform? ❤️ Buy us a coffee\n\nDiscover more\nUser Profile Automation\nPMP Exam Prep Kits\nJQuery UI Widget Testing\nPlaywright training\nPMP exam simulator\nFile Upload Automation\nAutomation testing conferences\nPre-written Test Cases\nPractice\nHome - My Notes - The App for Automation Testing Practice\nRegister\n\nTip Using a valid email address is highly recommended. This will enable you to reset your password if you forget it.\n\nEmail address\nName\nUser name is required\nPassword\nConfirm Password\nRegister\nRegister with GoogleRegister with LinkedIn\n\nDo you have an account?\xa0Log in here!\n\nDiscover more\nExit Intent Automation\nTest Automation Demos\nWebdriverIO tutorials\nContact Form Testing\nSample Automation Applications\nJQuery UI Menu Automation\nDynamic ID Handling\nSecure Download Testing\nPractice Test Automation WebSite for Web UI and Rest API\n\nVersion: e64cd80e | Copyright Expand Testing 2026'</msg>
-<status status="PASS" starttime="20260429 09:43:59.202" endtime="20260429 09:43:59.229"/>
+<msg timestamp="20260429 10:23:42.451" level="INFO">Text: 'PMP Practice | Free PMP Certification Mock Exam Test +900 Questions &amp; Quizzes Software testing courses\n\n\xa0Practice\nDemos\nTools\nTips\nTest Cases\nAPI Testing\nAbout\nFree ISTQB Mock Exams\n\nDo you enjoy this platform? ❤️ Buy us a coffee\n\nPractice\nHome - My Notes - The App for Automation Testing Practice\nRegister\n\nTip Using a valid email address is highly recommended. This will enable you to reset your password if you forget it.\n\nEmail address\nName\nUser name is required\nPassword\nConfirm Password\nRegister\nRegister with GoogleRegister with LinkedInSoftware\n\nDo you have an account?\xa0Log in here!\n\nDiscover more\nProgramming\nDevelopment Tools\nComputers &amp; Electronics\nWeb Apps &amp; Online Tools\nEmail &amp; Messaging\nemail\nNetworking\nSearch Engines\nPractice Test Automation WebSite for Web UI and Rest API\n\nVersion: e64cd80e | Copyright Expand Testing 2026'</msg>
+<status status="PASS" starttime="20260429 10:23:42.414" endtime="20260429 10:23:42.451"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>Checked Case: ${row[4]}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20260429 09:43:59.229" level="INFO">Checked Case: User name is required</msg>
-<status status="PASS" starttime="20260429 09:43:59.229" endtime="20260429 09:43:59.229"/>
+<msg timestamp="20260429 10:23:42.451" level="INFO">Checked Case: User name is required</msg>
+<status status="PASS" starttime="20260429 10:23:42.451" endtime="20260429 10:23:42.451"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20260429 09:44:00.230" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20260429 09:43:59.229" endtime="20260429 09:44:00.230"/>
+<msg timestamp="20260429 10:23:43.451" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20260429 10:23:42.451" endtime="20260429 10:23:43.451"/>
 </kw>
-<status status="PASS" starttime="20260429 09:43:57.695" endtime="20260429 09:44:00.230"/>
+<status status="PASS" starttime="20260429 10:23:39.279" endtime="20260429 10:23:43.451"/>
 </iter>
 <iter>
 <var name="${row}">['John Doe', 'invalid-email', 'Pass1234!', 'Pass1234!', 'Email address is invalid']</var>
@@ -128,8 +129,8 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Navigates to the given ``url``.</doc>
-<msg timestamp="20260429 09:44:01.675" level="INFO">Successfully opened URL https://practice.expandtesting.com/notes/app/register</msg>
-<status status="PASS" starttime="20260429 09:44:00.230" endtime="20260429 09:44:01.676"/>
+<msg timestamp="20260429 10:23:45.063" level="INFO">Successfully opened URL https://practice.expandtesting.com/notes/app/register</msg>
+<status status="PASS" starttime="20260429 10:23:43.451" endtime="20260429 10:23:45.063"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=name</arg>
@@ -137,8 +138,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:01.676" level="INFO">Fills the text 'John Doe' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:44:01.676" endtime="20260429 09:44:01.692"/>
+<msg timestamp="20260429 10:23:45.064" level="INFO">Fills the text 'John Doe' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:45.063" endtime="20260429 10:23:45.079"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=email</arg>
@@ -146,8 +147,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:01.693" level="INFO">Fills the text 'invalid-email' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:44:01.692" endtime="20260429 09:44:01.707"/>
+<msg timestamp="20260429 10:23:45.080" level="INFO">Fills the text 'invalid-email' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:45.079" endtime="20260429 10:23:45.093"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=password</arg>
@@ -155,8 +156,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:01.708" level="INFO">Fills the text 'Pass1234!' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:44:01.707" endtime="20260429 09:44:01.715"/>
+<msg timestamp="20260429 10:23:45.093" level="INFO">Fills the text 'Pass1234!' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:45.093" endtime="20260429 10:23:45.105"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=confirmPassword</arg>
@@ -164,16 +165,16 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:01.715" level="INFO">Fills the text 'Pass1234!' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:44:01.715" endtime="20260429 09:44:01.722"/>
+<msg timestamp="20260429 10:23:45.106" level="INFO">Fills the text 'Pass1234!' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:45.105" endtime="20260429 10:23:45.114"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>css=button[type="submit"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:01.726" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
-<status status="PASS" starttime="20260429 09:44:01.722" endtime="20260429 09:44:01.760"/>
+<msg timestamp="20260429 10:23:45.114" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
+<status status="PASS" starttime="20260429 10:23:45.114" endtime="20260429 10:23:45.452"/>
 </kw>
 <kw name="Get Text" library="Browser">
 <arg>body</arg>
@@ -183,22 +184,22 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:01.779" level="INFO">Text: 'PMP Practice | Free PMP Certification Mock Exam Test +900 Questions &amp; Quizzes PMP Exam Prep Kits\n\n\xa0Practice\nDemos\nTools\nTips\nTest Cases\nAPI Testing\nAbout\nFree ISTQB Mock Exams\n\nDo you enjoy this platform? ❤️ Buy us a coffee\n\nDiscover more\nAdvanced QA Certification\nDynamic Control Testing\nNotification Message Automation\nAutomation Tools Directory\nIP Address Lookup\nCheckbox Automation\nAPI Testing Best Practices\nRedirect Link Testing\nPractice\nHome - My Notes - The App for Automation Testing Practice\nRegister\n\nTip Using a valid email address is highly recommended. This will enable you to reset your password if you forget it.\n\nEmail address\nEmail address is invalid\nName\nPassword\nConfirm Password\nRegister\nRegister with GoogleRegister with LinkedIn\n\nDo you have an account?\xa0Log in here!\n\nDiscover more\nPMP Exam Prep Kits\nDynamic Table Testing\nChallenging DOM Locators\nPMP exam simulator\nDynamic Content Automation\nQA consulting services\nScrollbar Testing\nFeedback Page Automation\nPractice Test Automation WebSite for Web UI and Rest API\n\nVersion: e64cd80e | Copyright Expand Testing 2026'</msg>
-<status status="PASS" starttime="20260429 09:44:01.760" endtime="20260429 09:44:01.779"/>
+<msg timestamp="20260429 10:23:45.468" level="INFO">Text: 'PMP Practice | Free PMP Certification Mock Exam Test +900 Questions &amp; Quizzes Software testing courses\n\n\xa0Practice\nDemos\nTools\nTips\nTest Cases\nAPI Testing\nAbout\nFree ISTQB Mock Exams\n\nDo you enjoy this platform? ❤️ Buy us a coffee\n\nDiscover more\nProgramming\nDevelopment Tools\nSoftware\nemail\nEmail &amp; Messaging\nEmail\nAI Tools, Chatbots &amp; Virtual Assistants\nWeb Apps &amp; Online Tools\nPractice\nHome - My Notes - The App for Automation Testing Practice\nRegister\n\nTip Using a valid email address is highly recommended. This will enable you to reset your password if you forget it.\n\nEmail address\nEmail address is invalid\nName\nPassword\nConfirm Password\nRegister\nRegister with GoogleRegister with LinkedInSoftware\n\nDo you have an account?\xa0Log in here!\n\nDiscover more\nComputers &amp; Electronics\nDictionaries &amp; Encyclopedias\nNetworking\nInternet Software\nSearch Engines\nComputer Science\nOpen Source\nWeb Design &amp; Development\nPractice Test Automation WebSite for Web UI and Rest API\n\nVersion: e64cd80e | Copyright Expand Testing 2026\n\nDevelopment Tools'</msg>
+<status status="PASS" starttime="20260429 10:23:45.452" endtime="20260429 10:23:45.468"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>Checked Case: ${row[4]}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20260429 09:44:01.780" level="INFO">Checked Case: Email address is invalid</msg>
-<status status="PASS" starttime="20260429 09:44:01.779" endtime="20260429 09:44:01.780"/>
+<msg timestamp="20260429 10:23:45.468" level="INFO">Checked Case: Email address is invalid</msg>
+<status status="PASS" starttime="20260429 10:23:45.468" endtime="20260429 10:23:45.468"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20260429 09:44:02.781" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20260429 09:44:01.780" endtime="20260429 09:44:02.781"/>
+<msg timestamp="20260429 10:23:46.468" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20260429 10:23:45.468" endtime="20260429 10:23:46.468"/>
 </kw>
-<status status="PASS" starttime="20260429 09:44:00.230" endtime="20260429 09:44:02.781"/>
+<status status="PASS" starttime="20260429 10:23:43.451" endtime="20260429 10:23:46.468"/>
 </iter>
 <iter>
 <var name="${row}">['John Doe', 'user@test.com', '123', '123', 'Password should be between 6 and 30 characters']</var>
@@ -207,8 +208,8 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Navigates to the given ``url``.</doc>
-<msg timestamp="20260429 09:44:04.002" level="INFO">Successfully opened URL https://practice.expandtesting.com/notes/app/register</msg>
-<status status="PASS" starttime="20260429 09:44:02.781" endtime="20260429 09:44:04.002"/>
+<msg timestamp="20260429 10:23:47.687" level="INFO">Successfully opened URL https://practice.expandtesting.com/notes/app/register</msg>
+<status status="PASS" starttime="20260429 10:23:46.468" endtime="20260429 10:23:47.687"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=name</arg>
@@ -216,8 +217,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:04.002" level="INFO">Fills the text 'John Doe' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:44:04.002" endtime="20260429 09:44:04.016"/>
+<msg timestamp="20260429 10:23:47.688" level="INFO">Fills the text 'John Doe' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:47.687" endtime="20260429 10:23:47.704"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=email</arg>
@@ -225,8 +226,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:04.016" level="INFO">Fills the text 'user@test.com' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:44:04.016" endtime="20260429 09:44:04.028"/>
+<msg timestamp="20260429 10:23:47.704" level="INFO">Fills the text 'user@test.com' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:47.704" endtime="20260429 10:23:47.718"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=password</arg>
@@ -234,8 +235,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:04.028" level="INFO">Fills the text '123' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:44:04.028" endtime="20260429 09:44:04.037"/>
+<msg timestamp="20260429 10:23:47.720" level="INFO">Fills the text '123' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:47.718" endtime="20260429 10:23:47.731"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=confirmPassword</arg>
@@ -243,16 +244,16 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:04.037" level="INFO">Fills the text '123' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:44:04.037" endtime="20260429 09:44:04.051"/>
+<msg timestamp="20260429 10:23:47.731" level="INFO">Fills the text '123' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:47.731" endtime="20260429 10:23:47.743"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>css=button[type="submit"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:04.051" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
-<status status="PASS" starttime="20260429 09:44:04.051" endtime="20260429 09:44:04.123"/>
+<msg timestamp="20260429 10:23:47.743" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
+<status status="PASS" starttime="20260429 10:23:47.743" endtime="20260429 10:23:48.078"/>
 </kw>
 <kw name="Get Text" library="Browser">
 <arg>body</arg>
@@ -262,22 +263,22 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:04.144" level="INFO">Text: 'PMP Practice | Free PMP Certification Mock Exam Test +900 Questions &amp; Quizzes\n\n\xa0Practice\nDemos\nTools\nTips\nTest Cases\nAPI Testing\nAbout\nFree ISTQB Mock Exams\nDiscover more\nCypress Training Courses\nComprehensive SUT Solutions\nSoftware testing tools\n\nDo you enjoy this platform? ❤️ Buy us a coffee\n\nPractice\nHome - My Notes - The App for Automation Testing Practice\nRegister\n\nTip Using a valid email address is highly recommended. This will enable you to reset your password if you forget it.\n\nEmail address\nName\nPassword\nPassword should be between 6 and 30 characters\nConfirm Password\nRegister\nRegister with GoogleRegister with LinkedIn\n\nDo you have an account?\xa0Log in here!\n\nPractice Test Automation WebSite for Web UI and Rest API\n\nVersion: e64cd80e | Copyright Expand Testing 2026'</msg>
-<status status="PASS" starttime="20260429 09:44:04.123" endtime="20260429 09:44:04.144"/>
+<msg timestamp="20260429 10:23:48.101" level="INFO">Text: 'PMP Practice | Free PMP Certification Mock Exam Test +900 Questions &amp; Quizzes\n\n\xa0Practice\nDemos\nTools\nTips\nTest Cases\nAPI Testing\nAbout\nFree ISTQB Mock Exams\n\nDo you enjoy this platform? ❤️ Buy us a coffee\n\nDiscover more\nSoftware\nProgramming\nDevelopment Tools\nInternet Software\nNetworking\nSearch Engines\nemail\nAI Tools, Chatbots &amp; Virtual Assistants\nPractice\nHome - My Notes - The App for Automation Testing Practice\nRegister\n\nTip Using a valid email address is highly recommended. This will enable you to reset your password if you forget it.\n\nEmail address\nName\nPassword\nPassword should be between 6 and 30 characters\nConfirm Password\nRegister\nRegister with GoogleRegister with LinkedIn\n\nDo you have an account?\xa0Log in here!\n\nDiscover more\nEmail\nComputer Science\nComputers &amp; Electronics\nEmail &amp; Messaging\nDictionaries &amp; Encyclopedias\nWeb Apps &amp; Online Tools\nSoftware testing courses\nBusiness &amp; Productivity Software\nPractice Test Automation WebSite for Web UI and Rest API\n\nVersion: e64cd80e | Copyright Expand Testing 2026'</msg>
+<status status="PASS" starttime="20260429 10:23:48.078" endtime="20260429 10:23:48.101"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>Checked Case: ${row[4]}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20260429 09:44:04.144" level="INFO">Checked Case: Password should be between 6 and 30 characters</msg>
-<status status="PASS" starttime="20260429 09:44:04.144" endtime="20260429 09:44:04.144"/>
+<msg timestamp="20260429 10:23:48.102" level="INFO">Checked Case: Password should be between 6 and 30 characters</msg>
+<status status="PASS" starttime="20260429 10:23:48.102" endtime="20260429 10:23:48.102"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20260429 09:44:05.144" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20260429 09:44:04.144" endtime="20260429 09:44:05.144"/>
+<msg timestamp="20260429 10:23:49.102" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20260429 10:23:48.102" endtime="20260429 10:23:49.102"/>
 </kw>
-<status status="PASS" starttime="20260429 09:44:02.781" endtime="20260429 09:44:05.144"/>
+<status status="PASS" starttime="20260429 10:23:46.468" endtime="20260429 10:23:49.102"/>
 </iter>
 <iter>
 <var name="${row}">['John Doe', 'user@test.com', 'Pass1234!', 'Wrong123!', "Passwords don't match!"]</var>
@@ -286,8 +287,8 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Navigates to the given ``url``.</doc>
-<msg timestamp="20260429 09:44:06.566" level="INFO">Successfully opened URL https://practice.expandtesting.com/notes/app/register</msg>
-<status status="PASS" starttime="20260429 09:44:05.144" endtime="20260429 09:44:06.567"/>
+<msg timestamp="20260429 10:23:50.684" level="INFO">Successfully opened URL https://practice.expandtesting.com/notes/app/register</msg>
+<status status="PASS" starttime="20260429 10:23:49.102" endtime="20260429 10:23:50.685"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=name</arg>
@@ -295,8 +296,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:06.567" level="INFO">Fills the text 'John Doe' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:44:06.567" endtime="20260429 09:44:06.583"/>
+<msg timestamp="20260429 10:23:50.686" level="INFO">Fills the text 'John Doe' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:50.685" endtime="20260429 10:23:50.703"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=email</arg>
@@ -304,8 +305,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:06.584" level="INFO">Fills the text 'user@test.com' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:44:06.583" endtime="20260429 09:44:06.596"/>
+<msg timestamp="20260429 10:23:50.704" level="INFO">Fills the text 'user@test.com' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:50.704" endtime="20260429 10:23:50.719"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=password</arg>
@@ -313,8 +314,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:06.597" level="INFO">Fills the text 'Pass1234!' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:44:06.596" endtime="20260429 09:44:06.606"/>
+<msg timestamp="20260429 10:23:50.720" level="INFO">Fills the text 'Pass1234!' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:50.719" endtime="20260429 10:23:50.726"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=confirmPassword</arg>
@@ -322,16 +323,16 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:06.607" level="INFO">Fills the text 'Wrong123!' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:44:06.606" endtime="20260429 09:44:06.614"/>
+<msg timestamp="20260429 10:23:50.726" level="INFO">Fills the text 'Wrong123!' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:50.726" endtime="20260429 10:23:50.743"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>css=button[type="submit"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:06.614" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
-<status status="PASS" starttime="20260429 09:44:06.614" endtime="20260429 09:44:06.656"/>
+<msg timestamp="20260429 10:23:50.743" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
+<status status="PASS" starttime="20260429 10:23:50.743" endtime="20260429 10:23:51.069"/>
 </kw>
 <kw name="Get Text" library="Browser">
 <arg>body</arg>
@@ -341,22 +342,22 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:06.678" level="INFO">Text: "PMP Practice | Free PMP Certification Mock Exam Test +900 Questions &amp; Quizzes\n\n\xa0Practice\nDemos\nTools\nTips\nTest Cases\nAPI Testing\nAbout\nFree ISTQB Mock Exams\n\nDo you enjoy this platform? ❤️ Buy us a coffee\n\nDiscover more\nPlaywright training\nTest automation books\nDynamic ID Handling\nCoffee beans subscription\nSelenium WebDriver Tutorials\nSecurity testing platforms\nOTP Automation Solutions\nKey Press Automation\nPractice\nHome - My Notes - The App for Automation Testing Practice\nRegister\n\nTip Using a valid email address is highly recommended. This will enable you to reset your password if you forget it.\n\nEmail address\nName\nPassword\nConfirm Password\nPasswords don't match!\nRegister\nRegister with GoogleRegister with LinkedIn\n\nDo you have an account?\xa0Log in here!\n\nDiscover more\nQA consulting services\nAutocomplete Testing\nDynamic Loading Testing\nNotification Message Automation\nMocha Test Runner\nContext Menu Automation\nPagination Table Automation\nRadio Button Automation\nPractice Test Automation WebSite for Web UI and Rest API\n\nVersion: e64cd80e | Copyright Expand Testing 2026"</msg>
-<status status="PASS" starttime="20260429 09:44:06.656" endtime="20260429 09:44:06.678"/>
+<msg timestamp="20260429 10:23:51.097" level="INFO">Text: "PMP Practice | Free PMP Certification Mock Exam Test +900 Questions &amp; Quizzes Software testing courses\n\n\xa0Practice\nDemos\nTools\nTips\nTest Cases\nAPI Testing\nAbout\nFree ISTQB Mock Exams\n\nDo you enjoy this platform? ❤️ Buy us a coffee\n\nDiscover more\nSoftware\nProgramming\nDevelopment Tools\nEmail &amp; Messaging\nSearch Engines\nEmail\nInternet Software\nemail\nPractice\nHome - My Notes - The App for Automation Testing Practice\nRegister\n\nTip Using a valid email address is highly recommended. This will enable you to reset your password if you forget it.\n\nEmail address\nName\nPassword\nConfirm Password\nPasswords don't match!\nRegister\nRegister with GoogleRegister with LinkedInSoftware\n\nDo you have an account?\xa0Log in here!\n\nPractice Test Automation WebSite for Web UI and Rest API\n\nVersion: e64cd80e | Copyright Expand Testing 2026\n\nDevelopment Tools"</msg>
+<status status="PASS" starttime="20260429 10:23:51.069" endtime="20260429 10:23:51.097"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>Checked Case: ${row[4]}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20260429 09:44:06.679" level="INFO">Checked Case: Passwords don't match!</msg>
-<status status="PASS" starttime="20260429 09:44:06.678" endtime="20260429 09:44:06.679"/>
+<msg timestamp="20260429 10:23:51.097" level="INFO">Checked Case: Passwords don't match!</msg>
+<status status="PASS" starttime="20260429 10:23:51.097" endtime="20260429 10:23:51.097"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20260429 09:44:07.679" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20260429 09:44:06.679" endtime="20260429 09:44:07.679"/>
+<msg timestamp="20260429 10:23:52.098" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20260429 10:23:51.097" endtime="20260429 10:23:52.098"/>
 </kw>
-<status status="PASS" starttime="20260429 09:44:05.144" endtime="20260429 09:44:07.679"/>
+<status status="PASS" starttime="20260429 10:23:49.102" endtime="20260429 10:23:52.098"/>
 </iter>
 <iter>
 <var name="${row}">['John Doe', 'user@test.com', 'Pass1234!', '', 'Confirm Password is required']</var>
@@ -365,8 +366,8 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Navigates to the given ``url``.</doc>
-<msg timestamp="20260429 09:44:09.147" level="INFO">Successfully opened URL https://practice.expandtesting.com/notes/app/register</msg>
-<status status="PASS" starttime="20260429 09:44:07.679" endtime="20260429 09:44:09.147"/>
+<msg timestamp="20260429 10:23:53.543" level="INFO">Successfully opened URL https://practice.expandtesting.com/notes/app/register</msg>
+<status status="PASS" starttime="20260429 10:23:52.098" endtime="20260429 10:23:53.543"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=name</arg>
@@ -374,8 +375,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:09.148" level="INFO">Fills the text 'John Doe' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:44:09.147" endtime="20260429 09:44:09.164"/>
+<msg timestamp="20260429 10:23:53.544" level="INFO">Fills the text 'John Doe' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:53.544" endtime="20260429 10:23:53.558"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=email</arg>
@@ -383,8 +384,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:09.165" level="INFO">Fills the text 'user@test.com' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:44:09.164" endtime="20260429 09:44:09.178"/>
+<msg timestamp="20260429 10:23:53.562" level="INFO">Fills the text 'user@test.com' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:53.558" endtime="20260429 10:23:53.573"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=password</arg>
@@ -392,8 +393,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:09.179" level="INFO">Fills the text 'Pass1234!' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:44:09.178" endtime="20260429 09:44:09.185"/>
+<msg timestamp="20260429 10:23:53.573" level="INFO">Fills the text 'Pass1234!' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:53.573" endtime="20260429 10:23:53.583"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=confirmPassword</arg>
@@ -401,16 +402,16 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:09.185" level="INFO">Fills the text '' in the given field.</msg>
-<status status="PASS" starttime="20260429 09:44:09.185" endtime="20260429 09:44:09.192"/>
+<msg timestamp="20260429 10:23:53.584" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20260429 10:23:53.583" endtime="20260429 10:23:53.591"/>
 </kw>
 <kw name="Click" library="Browser">
 <arg>css=button[type="submit"]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:09.198" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
-<status status="PASS" starttime="20260429 09:44:09.192" endtime="20260429 09:44:09.236"/>
+<msg timestamp="20260429 10:23:53.591" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
+<status status="PASS" starttime="20260429 10:23:53.591" endtime="20260429 10:23:53.925"/>
 </kw>
 <kw name="Get Text" library="Browser">
 <arg>body</arg>
@@ -420,36 +421,38 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<msg timestamp="20260429 09:44:09.255" level="INFO">Text: 'PMP Practice | Free PMP Certification Mock Exam Test +900 Questions &amp; Quizzes\n\n\xa0Practice\nDemos\nTools\nTips\nTest Cases\nAPI Testing\nAbout\nFree ISTQB Mock Exams\nDiscover more\nWeb Input Automation\nSelenium WebDriver Tutorials\nWebdriverIO tutorials\n\nDo you enjoy this platform? ❤️ Buy us a coffee\n\nPractice\nHome - My Notes - The App for Automation Testing Practice\nRegister\n\nTip Using a valid email address is highly recommended. This will enable you to reset your password if you forget it.\n\nEmail address\nName\nPassword\nConfirm Password\nConfirm Password is required\nRegister\nRegister with GoogleRegister with LinkedIn\n\nDo you have an account?\xa0Log in here!\n\nDiscover more\nDynamic Table Testing\nSoftware testing tools\nDynamic ID Handling\nPractice Test Automation WebSite for Web UI and Rest API\n\nVersion: e64cd80e | Copyright Expand Testing 2026'</msg>
-<status status="PASS" starttime="20260429 09:44:09.236" endtime="20260429 09:44:09.255"/>
+<msg timestamp="20260429 10:23:53.943" level="INFO">Text: 'PMP Practice | Free PMP Certification Mock Exam Test +900 Questions &amp; Quizzes Software testing courses\n\n\xa0Practice\nDemos\nTools\nTips\nTest Cases\nAPI Testing\nAbout\nFree ISTQB Mock Exams\nDiscover more\nProgramming\nSoftware\nDevelopment Tools\n\nDo you enjoy this platform? ❤️ Buy us a coffee\n\nPractice\nHome - My Notes - The App for Automation Testing Practice\nRegister\n\nTip Using a valid email address is highly recommended. This will enable you to reset your password if you forget it.\n\nEmail address\nName\nPassword\nConfirm Password\nConfirm Password is required\nRegister\nRegister with GoogleRegister with LinkedInSoftware\n\nDo you have an account?\xa0Log in here!\n\nDiscover more\nWeb Apps &amp; Online Tools\nEmail &amp; Messaging\nSearch Engines\nPractice Test Automation WebSite for Web UI and Rest API\n\nVersion: e64cd80e | Copyright Expand Testing 2026\n\nProgramming'</msg>
+<status status="PASS" starttime="20260429 10:23:53.925" endtime="20260429 10:23:53.943"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>Checked Case: ${row[4]}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20260429 09:44:09.255" level="INFO">Checked Case: Confirm Password is required</msg>
-<status status="PASS" starttime="20260429 09:44:09.255" endtime="20260429 09:44:09.255"/>
+<msg timestamp="20260429 10:23:53.943" level="INFO">Checked Case: Confirm Password is required</msg>
+<status status="PASS" starttime="20260429 10:23:53.943" endtime="20260429 10:23:53.943"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20260429 09:44:10.255" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20260429 09:44:09.255" endtime="20260429 09:44:10.255"/>
+<msg timestamp="20260429 10:23:54.944" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20260429 10:23:53.943" endtime="20260429 10:23:54.944"/>
 </kw>
-<status status="PASS" starttime="20260429 09:44:07.679" endtime="20260429 09:44:10.255"/>
+<status status="PASS" starttime="20260429 10:23:52.098" endtime="20260429 10:23:54.944"/>
 </iter>
-<status status="PASS" starttime="20260429 09:43:57.694" endtime="20260429 09:44:10.255"/>
+<status status="PASS" starttime="20260429 10:23:39.279" endtime="20260429 10:23:54.944"/>
 </for>
+<status status="PASS" starttime="20260429 10:23:39.279" endtime="20260429 10:23:54.944"/>
+</kw>
 <doc>รัน Exception Cases โดยครอบคลุม Name และ Confirm Password</doc>
-<status status="PASS" starttime="20260429 09:43:57.686" endtime="20260429 09:44:10.255"/>
+<status status="PASS" starttime="20260429 10:23:39.272" endtime="20260429 10:23:54.944"/>
 </test>
 <kw name="Close Browser" library="Browser" type="TEARDOWN">
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Closes the current browser.</doc>
-<msg timestamp="20260429 09:44:10.558" level="INFO">Closed browser</msg>
-<status status="PASS" starttime="20260429 09:44:10.259" endtime="20260429 09:44:10.558"/>
+<msg timestamp="20260429 10:23:55.222" level="INFO">Closed browser</msg>
+<status status="PASS" starttime="20260429 10:23:54.944" endtime="20260429 10:23:55.222"/>
 </kw>
-<status status="PASS" starttime="20260429 09:43:54.267" endtime="20260429 09:44:10.558"/>
+<status status="PASS" starttime="20260429 10:23:33.597" endtime="20260429 10:23:55.222"/>
 </suite>
 <statistics>
 <total>

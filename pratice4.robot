@@ -10,30 +10,34 @@ ${CSV_FILE}       C:/Users/iTservice/OneDrive/เอกสาร/pratice_Automat
 ${URL}            https://practice.expandtesting.com/notes/app/register
 
 *** Test Cases ***
-Verify All Register Exceptions From CSV
+TC01 - Verify All Register Exceptions
     [Documentation]    รัน Exception Cases โดยครอบคลุม Name และ Confirm Password
-    ${data}=    Read Csv File To List   ${CSV_FILE}
-    
-    FOR    ${row}    IN    @{data[1:]}
-        Go To    ${URL}    
-        
-        
-        Fill Text    id=name               ${row[0]}
-        Fill Text    id=email              ${row[1]}
-        Fill Text    id=password           ${row[2]}
-        Fill Text    id=confirmPassword    ${row[3]}
-        
-        Click        css=button[type="submit"]
-        
-        Get Text     body    contains    ${row[4]}
-        
-        Log    Checked Case: ${row[4]}
+    Verify All Register Exceptions From CSV
 
-        Sleep       1s
-    END
 
 *** Keywords ***
 Open Register Page
     New Browser   browser=chromium    headless=False
     New Page       ${URL}   
     Set Browser Timeout    20 seconds
+
+Verify All Register Exceptions From CSV
+    ${data}=    Read Csv File To List   ${CSV_FILE}
+        
+        FOR    ${row}    IN    @{data[1:]}
+            Go To    ${URL}    
+            
+            
+            Fill Text    id=name               ${row[0]}
+            Fill Text    id=email              ${row[1]}
+            Fill Text    id=password           ${row[2]}
+            Fill Text    id=confirmPassword    ${row[3]}
+            
+            Click        css=button[type="submit"]
+            
+            Get Text     body    contains    ${row[4]}
+            
+            Log    Checked Case: ${row[4]}
+
+            Sleep       1s
+        END
